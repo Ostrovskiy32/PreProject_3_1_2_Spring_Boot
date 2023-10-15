@@ -32,6 +32,13 @@ public class User {
 
     }
 
+    public User(String name, String surname, Byte age, String citizenship) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        Citizenship = citizenship;
+    }
+
     public Long getUserId() {
         return userId;
     }
