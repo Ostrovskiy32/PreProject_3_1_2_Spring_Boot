@@ -26,17 +26,26 @@ public class User {
     @Column(name = "citizenship")
     @NotBlank(message = "Field shouldn't empty")
     @Size(min = 1, max = 50, message = "Surname must be bigger than 0, but no more than 50")
-    private String Citizenship;
+    private String citizenship;
+    @Column(name = "username")
+    @NotBlank(message = "Field shouldn't empty")
+    @Size(min = 1, max = 50, message = "Surname must be bigger than 0, but no more than 50")
+    private String username;
+    @NotBlank(message = "Field shouldn't empty")
+    @Size(min = 1, max = 50, message = "Surname must be bigger than 0, but no more than 50")
+    private String password;
 
     public User() {
 
     }
 
-    public User(String name, String surname, Byte age, String citizenship) {
+    public User(String name, String surname, Byte age, String citizenship, String username, String password) {
         this.name = name;
         this.surname = surname;
         this.age = age;
-        Citizenship = citizenship;
+        this.citizenship = citizenship;
+        this.username = username;
+        this.password = password;
     }
 
     public Long getUserId() {
@@ -56,8 +65,12 @@ public class User {
     }
 
     public String getCitizenship() {
-        return Citizenship;
+        return citizenship;
     }
+
+    public String getUsername() { return  username; }
+
+    public String getPassword() { return password; }
 
     public void setUserId(Long userId) {
         this.userId = userId;
@@ -76,7 +89,13 @@ public class User {
     }
 
     public void setCitizenship(String citizenship) {
-        Citizenship = citizenship;
+        this.citizenship = citizenship;
+    }
+
+    public void setUsername(String username) { this.username = username;}
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -84,11 +103,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(userId, user.userId) && Objects.equals(name, user.name) && Objects.equals(surname, user.surname) && Objects.equals(age, user.age) && Objects.equals(Citizenship, user.Citizenship);
+        return Objects.equals(userId, user.userId) && Objects.equals(name, user.name) && Objects.equals(surname, user.surname) && Objects.equals(age, user.age) && Objects.equals(citizenship, user.citizenship) && Objects.equals(username, user.username) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, name, surname, age, Citizenship);
+        return Objects.hash(userId, name, surname, age, citizenship, username, password);
     }
 }
