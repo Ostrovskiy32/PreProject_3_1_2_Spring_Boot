@@ -48,8 +48,8 @@ public class Controllers {
     }
     @GetMapping("/edit/{id}")
     public String updateUser(@PathVariable("id") long id, Model model) {
-        model.addAttribute(userService.getUserById(id));
-        return REDIRECT;
+        model.addAttribute("user",userService.getUserById(id));
+        return "edit";
     }
     @PatchMapping("/edit")
     public String update(User user, BindingResult bindingResult) {
