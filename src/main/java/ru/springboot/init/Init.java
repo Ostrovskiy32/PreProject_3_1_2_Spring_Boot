@@ -14,6 +14,7 @@ public class Init {
     }
     @PostConstruct
     public void initialDataBase() {
-        userService.addUser(new User("Igor", "Ostrovsky", (byte) 52, "Russian", "ostrov", "12345"));
+        userService.addUser(new User("Igor", "Ostrovsky", (byte) 52, "Russian", "admin", "12345"));
+        userService.addUser(new User("Peter", "Petrov", (byte) 52, "Russian", "user", "54321"));
     }
 }
