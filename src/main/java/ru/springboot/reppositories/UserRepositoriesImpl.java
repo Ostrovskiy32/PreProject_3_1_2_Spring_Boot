@@ -1,10 +1,9 @@
-package ru.springboot.userRepositories;
+package ru.springboot.reppositories;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import org.springframework.data.convert.ReadingConverter;
 import org.springframework.stereotype.Repository;
-import ru.springboot.userModel.User;
+import ru.springboot.model.User;
 
 import java.util.List;
 @Repository

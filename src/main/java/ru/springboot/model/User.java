@@ -1,6 +1,8 @@
-package ru.springboot.userModel;
+package ru.springboot.model;
 
 import jakarta.persistence.*;
+
+import jakarta.validation.constraints.*;
 
 import java.util.Objects;
 
@@ -11,12 +13,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
     @Column(name = "name")
+    @NotBlank(message = "Field shouldn't empty")
+    @Size(min = 1, max =50, message = "Name must have bigger than 0, but no more than 50")
     private String name;
     @Column(name = "surname")
+    @NotBlank(message = "Field shouldn't empty")
+    @Size(min = 1, max = 50, message = "Surname must be bigger than 0, but no more than 50")
     private String surname;
     @Column(name = "age")
+    @Min(value = 0, message = ("Age should be bigger than 0"))
     private Byte age;
     @Column(name = "citizenship")
+    @NotBlank(message = "Field shouldn't empty")
+    @Size(min = 1, max = 50, message = "Surname must be bigger than 0, but no more than 50")
     private String Citizenship;
 
     public User() {

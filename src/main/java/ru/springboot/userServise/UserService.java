@@ -1,6 +1,6 @@
 package ru.springboot.userServise;
 
-import ru.springboot.userModel.User;
+import ru.springboot.model.User;
 
 import java.util.List;
 

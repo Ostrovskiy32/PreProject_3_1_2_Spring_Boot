@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
-import ru.springboot.userModel.User;
-import ru.springboot.userRepositories.UserRepositories;
+import ru.springboot.model.User;
+import ru.springboot.reppositories.UserRepositories;
 
 import java.util.List;
 @Service
-@Transactional(isolation = Isolation.READ_UNCOMMITTED)
+@Transactional
 public class UserServiceImpl implements UserService{
     private final UserRepositories userRepositories;
     @Autowired

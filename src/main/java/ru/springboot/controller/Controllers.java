@@ -1,12 +1,15 @@
-package ru.springboot.controllers;
+package ru.springboot.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.springboot.userModel.User;
+import ru.springboot.model.User;
 import ru.springboot.userServise.UserService;
+
 
 @Controller
 public class Controllers {
@@ -32,8 +35,9 @@ public class Controllers {
     public String addUser(User user) {
         return "create";
     }
+
     @PostMapping("/new")
-    public String add(User user, BindingResult bindingResult) {
+    public String add(@Valid User user, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){
             return "create";
         } else {
@@ -42,7 +46,7 @@ public class Controllers {
         }
     }
     @DeleteMapping("delete/{id}")
-    public String delete(@PathVariable("id") long id, Model model) {
+    public String delete(@PathVariable("id") long id) {
         userService.removeUser(id);
         return REDIRECT;
     }
@@ -52,7 +56,7 @@ public class Controllers {
         return "edit";
     }
     @PatchMapping("/edit")
-    public String update(User user, BindingResult bindingResult) {
+    public String update(@Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "edit";
         } else {
