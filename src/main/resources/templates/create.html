@@ -60,6 +60,24 @@
             </td>
         </tr>
             <br>
+        <br>
+        <tr>
+            <td>
+                <label for="username">Enter username</label>
+                <input type="text" th:field="*{username}" id="username" required/>
+                <p style="color: red" th:if="${#fields.hasErrors('citizenship')}" th:errors="*{username}">username error</p>
+            </td>
+        </tr>
+        <br>
+        <br>
+        <tr>
+            <td>
+                <label for="password">Enter password</label>
+                <input type="text" th:field="*{password}" id="password" required/>
+                <p style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error</p>
+            </td>
+        </tr>
+        <br>
         <tr>
             <td>
                 <input type="submit" class="buttonAdd" value="Add user"/>

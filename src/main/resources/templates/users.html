@@ -52,6 +52,8 @@
         <td th:utext="${users.surname}">Surname</td>
         <td th:utext="${users.age}">Age</td>
         <td th:utext="${users.citizenship}">Citizenship</td>
+        <td th:utext="${users.username}">Username</td>
+        <td th:utext="${users.password}">Password</td>
         <td>
             <form th:action="@{'edit/' + ${users.userId}}">
                 <input type="submit" class="buttonEdit" value="Edit"/>
